@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDatosusuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDatosusuLabel_documento}"/>
+                    <h:outputText value="#{datosusuController.selected.documento}" title="#{bundle.ViewDatosusuTitle_documento}"/>
+                    <h:outputText value="#{bundle.ViewDatosusuLabel_tipoDocumento}"/>
+                    <h:outputText value="#{datosusuController.selected.tipoDocumento}" title="#{bundle.ViewDatosusuTitle_tipoDocumento}"/>
+                    <h:outputText value="#{bundle.ViewDatosusuLabel_nombres}"/>
+                    <h:outputText value="#{datosusuController.selected.nombres}" title="#{bundle.ViewDatosusuTitle_nombres}"/>
+                    <h:outputText value="#{bundle.ViewDatosusuLabel_apellidos}"/>
+                    <h:outputText value="#{datosusuController.selected.apellidos}" title="#{bundle.ViewDatosusuTitle_apellidos}"/>
+                    <h:outputText value="#{bundle.ViewDatosusuLabel_email}"/>
+                    <h:outputText value="#{datosusuController.selected.email}" title="#{bundle.ViewDatosusuTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewDatosusuLabel_usuarioidUsuario}"/>
+                    <h:outputText value="#{datosusuController.selected.usuarioidUsuario}" title="#{bundle.ViewDatosusuTitle_usuarioidUsuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{datosusuController.destroyAndView}" value="#{bundle.ViewDatosusuDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDatosusuEditLink}"/>
+                <br />
+                <h:commandLink action="#{datosusuController.prepareCreate}" value="#{bundle.ViewDatosusuCreateLink}" />
+                <br />
+                <h:commandLink action="#{datosusuController.prepareList}" value="#{bundle.ViewDatosusuShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDatosusuIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDatosusuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDatosusuLabel_documento}" for="documento" />
+                    <h:inputText id="documento" value="#{datosusuController.selected.documento}" title="#{bundle.CreateDatosusuTitle_documento}" required="true" requiredMessage="#{bundle.CreateDatosusuRequiredMessage_documento}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosusuLabel_tipoDocumento}" for="tipoDocumento" />
+                    <h:inputText id="tipoDocumento" value="#{datosusuController.selected.tipoDocumento}" title="#{bundle.CreateDatosusuTitle_tipoDocumento}" required="true" requiredMessage="#{bundle.CreateDatosusuRequiredMessage_tipoDocumento}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosusuLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{datosusuController.selected.nombres}" title="#{bundle.CreateDatosusuTitle_nombres}" required="true" requiredMessage="#{bundle.CreateDatosusuRequiredMessage_nombres}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosusuLabel_apellidos}" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{datosusuController.selected.apellidos}" title="#{bundle.CreateDatosusuTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateDatosusuRequiredMessage_apellidos}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosusuLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{datosusuController.selected.email}" title="#{bundle.CreateDatosusuTitle_email}" required="true" requiredMessage="#{bundle.CreateDatosusuRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.CreateDatosusuLabel_usuarioidUsuario}" for="usuarioidUsuario" />
+                    <h:selectOneMenu id="usuarioidUsuario" value="#{datosusuController.selected.usuarioidUsuario}" title="#{bundle.CreateDatosusuTitle_usuarioidUsuario}" required="true" requiredMessage="#{bundle.CreateDatosusuRequiredMessage_usuarioidUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{datosusuController.create}" value="#{bundle.CreateDatosusuSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{datosusuController.prepareList}" value="#{bundle.CreateDatosusuShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDatosusuIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
